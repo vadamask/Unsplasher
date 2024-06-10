@@ -15,6 +15,7 @@
 		DDEAF30F2C175F130009E3CF /* ImagesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEAF30E2C175F130009E3CF /* ImagesCollectionViewController.swift */; };
 		DDEAF3132C175F760009E3CF /* FavoriteImagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEAF3122C175F760009E3CF /* FavoriteImagesViewController.swift */; };
 		DDEAF3172C1763D90009E3CF /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEAF3162C1763D90009E3CF /* DetailViewController.swift */; };
+		DDEAF31A2C17716E0009E3CF /* ImagesCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEAF3192C17716E0009E3CF /* ImagesCollectionCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		DDEAF30E2C175F130009E3CF /* ImagesCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesCollectionViewController.swift; sourceTree = "<group>"; };
 		DDEAF3122C175F760009E3CF /* FavoriteImagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteImagesViewController.swift; sourceTree = "<group>"; };
 		DDEAF3162C1763D90009E3CF /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		DDEAF3192C17716E0009E3CF /* ImagesCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesCollectionCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,12 +99,29 @@
 		DDEAF3152C175FE90009E3CF /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				DDEAF3182C17714F0009E3CF /* ImagesCollection */,
+				DDEAF31B2C177EC60009E3CF /* FavoriteImages */,
 				DD01EAB62C1757FC00D403BD /* TabBarController.swift */,
-				DDEAF3122C175F760009E3CF /* FavoriteImagesViewController.swift */,
-				DDEAF30E2C175F130009E3CF /* ImagesCollectionViewController.swift */,
 				DDEAF3162C1763D90009E3CF /* DetailViewController.swift */,
 			);
 			path = Scenes;
+			sourceTree = "<group>";
+		};
+		DDEAF3182C17714F0009E3CF /* ImagesCollection */ = {
+			isa = PBXGroup;
+			children = (
+				DDEAF30E2C175F130009E3CF /* ImagesCollectionViewController.swift */,
+				DDEAF3192C17716E0009E3CF /* ImagesCollectionCell.swift */,
+			);
+			path = ImagesCollection;
+			sourceTree = "<group>";
+		};
+		DDEAF31B2C177EC60009E3CF /* FavoriteImages */ = {
+			isa = PBXGroup;
+			children = (
+				DDEAF3122C175F760009E3CF /* FavoriteImagesViewController.swift */,
+			);
+			path = FavoriteImages;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -179,6 +198,7 @@
 				DD01EAB72C1757FC00D403BD /* TabBarController.swift in Sources */,
 				DD01EAB32C1757FC00D403BD /* AppDelegate.swift in Sources */,
 				DDEAF3172C1763D90009E3CF /* DetailViewController.swift in Sources */,
+				DDEAF31A2C17716E0009E3CF /* ImagesCollectionCell.swift in Sources */,
 				DDEAF3132C175F760009E3CF /* FavoriteImagesViewController.swift in Sources */,
 				DD01EAB52C1757FC00D403BD /* SceneDelegate.swift in Sources */,
 			);

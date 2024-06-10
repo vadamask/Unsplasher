@@ -12,11 +12,15 @@ class TabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupControllers()
+        setupTabBar()
     }
     
     private func setupControllers() {
-        let imagesCollectionVC = ImagesCollectionViewController()
-        let favoriteImagesVC = FavoriteImagesViewController()
+        let imagesCollectionVC = UINavigationController(rootViewController: ImagesCollectionViewController())
+        let favoriteImagesVC = UINavigationController(rootViewController: FavoriteImagesViewController())
+
+        imagesCollectionVC.navigationBar.backgroundColor = .mainBackground
+        favoriteImagesVC.navigationBar.backgroundColor = .mainBackground
         
         let collectionItem = UITabBarItem(
             title: "Коллекция",
@@ -36,5 +40,10 @@ class TabBarController: UITabBarController {
         viewControllers = [imagesCollectionVC, favoriteImagesVC]
     }
 
+    private func setupTabBar() {
+        view.backgroundColor = .mainBackground
+        tabBar.backgroundColor = .mainBackground
+        tabBar.tintColor = .tabbarItem
+    }
 }
 
