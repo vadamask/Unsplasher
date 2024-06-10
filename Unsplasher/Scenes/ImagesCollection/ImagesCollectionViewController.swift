@@ -104,12 +104,9 @@ extension ImagesCollectionViewController: UICollectionViewDelegateFlowLayout {
         sizeForItemAt indexPath: IndexPath
     ) -> CGSize {
         
-        guard let screenSize = view.window?.windowScene?.screen.bounds else {
-            return CGSize(width: 0, height: 0)
-        }
-        
+        let screenWidth = view.bounds.width
         let emptySpace = (Layout.inset * 2) + (Layout.betweenCells * 2)
-        let width = (screenSize.width - emptySpace) / Layout.cellPerRow
+        let width = (screenWidth - emptySpace) / Layout.cellPerRow
         return CGSize(width: width, height: width)
     }
     
