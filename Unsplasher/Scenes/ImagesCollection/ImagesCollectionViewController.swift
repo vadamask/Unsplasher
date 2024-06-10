@@ -31,7 +31,7 @@ final class ImagesCollectionViewController: UIViewController {
     
     private func setupViews() {
         view.backgroundColor = .mainBackground
-
+        navigationItem.title = "Коллекция"
         
         let searchController = UISearchController()
         searchController.searchBar.placeholder = "Поиск"
@@ -93,6 +93,7 @@ extension ImagesCollectionViewController: UICollectionViewDelegateFlowLayout {
         didSelectItemAt indexPath: IndexPath
     ) {
         let detailVC = DetailViewController()
+        
         navigationController?.pushViewController(detailVC, animated: true)
     }
     

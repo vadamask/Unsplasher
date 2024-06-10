@@ -18,9 +18,6 @@ class TabBarController: UITabBarController {
     private func setupControllers() {
         let imagesCollectionVC = UINavigationController(rootViewController: ImagesCollectionViewController())
         let favoriteImagesVC = UINavigationController(rootViewController: FavoriteImagesViewController())
-
-        imagesCollectionVC.navigationBar.backgroundColor = .mainBackground
-        favoriteImagesVC.navigationBar.backgroundColor = .mainBackground
         
         let collectionItem = UITabBarItem(
             title: "Коллекция",
