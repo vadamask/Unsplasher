@@ -9,19 +9,25 @@
 /* Begin PBXBuildFile section */
 		DD01EAB32C1757FC00D403BD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD01EAB22C1757FC00D403BD /* AppDelegate.swift */; };
 		DD01EAB52C1757FC00D403BD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD01EAB42C1757FC00D403BD /* SceneDelegate.swift */; };
-		DD01EAB72C1757FC00D403BD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD01EAB62C1757FC00D403BD /* ViewController.swift */; };
+		DD01EAB72C1757FC00D403BD /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD01EAB62C1757FC00D403BD /* TabBarController.swift */; };
 		DD01EABC2C1757FE00D403BD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD01EABB2C1757FE00D403BD /* Assets.xcassets */; };
 		DD01EABF2C1757FE00D403BD /* Base in Resources */ = {isa = PBXBuildFile; fileRef = DD01EABE2C1757FE00D403BD /* Base */; };
+		DDEAF30F2C175F130009E3CF /* ImagesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEAF30E2C175F130009E3CF /* ImagesCollectionViewController.swift */; };
+		DDEAF3132C175F760009E3CF /* FavoriteImagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEAF3122C175F760009E3CF /* FavoriteImagesViewController.swift */; };
+		DDEAF3172C1763D90009E3CF /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEAF3162C1763D90009E3CF /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		DD01EAAF2C1757FC00D403BD /* Unsplasher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Unsplasher.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD01EAB22C1757FC00D403BD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DD01EAB42C1757FC00D403BD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		DD01EAB62C1757FC00D403BD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		DD01EAB62C1757FC00D403BD /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		DD01EABB2C1757FE00D403BD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DD01EABE2C1757FE00D403BD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DD01EAC02C1757FE00D403BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DDEAF30E2C175F130009E3CF /* ImagesCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesCollectionViewController.swift; sourceTree = "<group>"; };
+		DDEAF3122C175F760009E3CF /* FavoriteImagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteImagesViewController.swift; sourceTree = "<group>"; };
+		DDEAF3162C1763D90009E3CF /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +60,49 @@
 		DD01EAB12C1757FC00D403BD /* Unsplasher */ = {
 			isa = PBXGroup;
 			children = (
+				DDEAF3142C175FC20009E3CF /* API */,
+				DDEAF30C2C175E870009E3CF /* App */,
+				DDEAF30D2C175E910009E3CF /* Resources */,
+				DDEAF3152C175FE90009E3CF /* Scenes */,
+			);
+			path = Unsplasher;
+			sourceTree = "<group>";
+		};
+		DDEAF30C2C175E870009E3CF /* App */ = {
+			isa = PBXGroup;
+			children = (
 				DD01EAB22C1757FC00D403BD /* AppDelegate.swift */,
 				DD01EAB42C1757FC00D403BD /* SceneDelegate.swift */,
-				DD01EAB62C1757FC00D403BD /* ViewController.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		DDEAF30D2C175E910009E3CF /* Resources */ = {
+			isa = PBXGroup;
+			children = (
 				DD01EABB2C1757FE00D403BD /* Assets.xcassets */,
 				DD01EABD2C1757FE00D403BD /* LaunchScreen.storyboard */,
 				DD01EAC02C1757FE00D403BD /* Info.plist */,
 			);
-			path = Unsplasher;
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		DDEAF3142C175FC20009E3CF /* API */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		DDEAF3152C175FE90009E3CF /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				DD01EAB62C1757FC00D403BD /* TabBarController.swift */,
+				DDEAF3122C175F760009E3CF /* FavoriteImagesViewController.swift */,
+				DDEAF30E2C175F130009E3CF /* ImagesCollectionViewController.swift */,
+				DDEAF3162C1763D90009E3CF /* DetailViewController.swift */,
+			);
+			path = Scenes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -134,8 +175,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DD01EAB72C1757FC00D403BD /* ViewController.swift in Sources */,
+				DDEAF30F2C175F130009E3CF /* ImagesCollectionViewController.swift in Sources */,
+				DD01EAB72C1757FC00D403BD /* TabBarController.swift in Sources */,
 				DD01EAB32C1757FC00D403BD /* AppDelegate.swift in Sources */,
+				DDEAF3172C1763D90009E3CF /* DetailViewController.swift in Sources */,
+				DDEAF3132C175F760009E3CF /* FavoriteImagesViewController.swift in Sources */,
 				DD01EAB52C1757FC00D403BD /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -282,7 +326,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = UL8MT562QM;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Unsplasher/Info.plist;
+				INFOPLIST_FILE = Unsplasher/Resources/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.entertainment";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -314,7 +358,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = UL8MT562QM;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Unsplasher/Info.plist;
+				INFOPLIST_FILE = Unsplasher/Resources/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.entertainment";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
