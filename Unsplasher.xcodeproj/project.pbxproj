@@ -16,6 +16,7 @@
 		DDEAF3132C175F760009E3CF /* FavoriteImagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEAF3122C175F760009E3CF /* FavoriteImagesViewController.swift */; };
 		DDEAF3172C1763D90009E3CF /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEAF3162C1763D90009E3CF /* DetailViewController.swift */; };
 		DDEAF31A2C17716E0009E3CF /* ImagesCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEAF3192C17716E0009E3CF /* ImagesCollectionCell.swift */; };
+		DDEAF3212C17889E0009E3CF /* FavoriteImagesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEAF3202C17889E0009E3CF /* FavoriteImagesCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		DDEAF3122C175F760009E3CF /* FavoriteImagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteImagesViewController.swift; sourceTree = "<group>"; };
 		DDEAF3162C1763D90009E3CF /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		DDEAF3192C17716E0009E3CF /* ImagesCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesCollectionCell.swift; sourceTree = "<group>"; };
+		DDEAF3202C17889E0009E3CF /* FavoriteImagesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteImagesCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				DDEAF3122C175F760009E3CF /* FavoriteImagesViewController.swift */,
+				DDEAF3202C17889E0009E3CF /* FavoriteImagesCell.swift */,
 			);
 			path = FavoriteImages;
 			sourceTree = "<group>";
@@ -195,6 +198,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DDEAF30F2C175F130009E3CF /* ImagesCollectionViewController.swift in Sources */,
+				DDEAF3212C17889E0009E3CF /* FavoriteImagesCell.swift in Sources */,
 				DD01EAB72C1757FC00D403BD /* TabBarController.swift in Sources */,
 				DD01EAB32C1757FC00D403BD /* AppDelegate.swift in Sources */,
 				DDEAF3172C1763D90009E3CF /* DetailViewController.swift in Sources */,

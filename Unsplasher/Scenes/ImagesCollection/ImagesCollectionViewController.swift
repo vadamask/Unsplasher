@@ -35,6 +35,8 @@ final class ImagesCollectionViewController: UIViewController {
         
         let searchController = UISearchController()
         searchController.searchBar.placeholder = "Поиск"
+        searchController.hidesNavigationBarDuringPresentation = false
+        
         navigationItem.searchController = searchController
         
         collectionView.dataSource = self
@@ -93,7 +95,6 @@ extension ImagesCollectionViewController: UICollectionViewDelegateFlowLayout {
         didSelectItemAt indexPath: IndexPath
     ) {
         let detailVC = DetailViewController()
-        
         navigationController?.pushViewController(detailVC, animated: true)
     }
     
