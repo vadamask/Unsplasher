@@ -17,6 +17,8 @@
 		DDEAF3172C1763D90009E3CF /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEAF3162C1763D90009E3CF /* DetailViewController.swift */; };
 		DDEAF31A2C17716E0009E3CF /* ImagesCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEAF3192C17716E0009E3CF /* ImagesCollectionCell.swift */; };
 		DDEAF3212C17889E0009E3CF /* FavoriteImagesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEAF3202C17889E0009E3CF /* FavoriteImagesCell.swift */; };
+		DDEAF3232C18A02F0009E3CF /* HttpMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEAF3222C18A02F0009E3CF /* HttpMethod.swift */; };
+		DDEAF3252C18A06B0009E3CF /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEAF3242C18A06B0009E3CF /* Endpoint.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,8 @@
 		DDEAF3162C1763D90009E3CF /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		DDEAF3192C17716E0009E3CF /* ImagesCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesCollectionCell.swift; sourceTree = "<group>"; };
 		DDEAF3202C17889E0009E3CF /* FavoriteImagesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteImagesCell.swift; sourceTree = "<group>"; };
+		DDEAF3222C18A02F0009E3CF /* HttpMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpMethod.swift; sourceTree = "<group>"; };
+		DDEAF3242C18A06B0009E3CF /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +98,8 @@
 		DDEAF3142C175FC20009E3CF /* API */ = {
 			isa = PBXGroup;
 			children = (
+				DDEAF3222C18A02F0009E3CF /* HttpMethod.swift */,
+				DDEAF3242C18A06B0009E3CF /* Endpoint.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -201,6 +207,8 @@
 				DDEAF3212C17889E0009E3CF /* FavoriteImagesCell.swift in Sources */,
 				DD01EAB72C1757FC00D403BD /* TabBarController.swift in Sources */,
 				DD01EAB32C1757FC00D403BD /* AppDelegate.swift in Sources */,
+				DDEAF3252C18A06B0009E3CF /* Endpoint.swift in Sources */,
+				DDEAF3232C18A02F0009E3CF /* HttpMethod.swift in Sources */,
 				DDEAF3172C1763D90009E3CF /* DetailViewController.swift in Sources */,
 				DDEAF31A2C17716E0009E3CF /* ImagesCollectionCell.swift in Sources */,
 				DDEAF3132C175F760009E3CF /* FavoriteImagesViewController.swift in Sources */,
