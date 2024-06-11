@@ -25,12 +25,17 @@
 		DDEAF32E2C18A8310009E3CF /* UnlikePhotoRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEAF32D2C18A8310009E3CF /* UnlikePhotoRequest.swift */; };
 		DDEAF3312C18A87C0009E3CF /* SearchPhotosRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEAF3302C18A87C0009E3CF /* SearchPhotosRequest.swift */; };
 		DDEAF3362C18ABF20009E3CF /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEAF3352C18ABF20009E3CF /* Photo.swift */; };
+		DDEAF33F2C18B5300009E3CF /* TokenStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEAF33E2C18B5300009E3CF /* TokenStorage.swift */; };
 		DDEAF3412C18B6890009E3CF /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEAF3402C18B6890009E3CF /* Location.swift */; };
 		DDEAF3432C18B68F0009E3CF /* Urls.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEAF3422C18B68F0009E3CF /* Urls.swift */; };
 		DDEAF3452C18B6990009E3CF /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEAF3442C18B6990009E3CF /* User.swift */; };
+		F3A54503B99A4E9AFC4733EC /* libPods-Unsplasher.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D0389F50DF02CAA33D7C3624 /* libPods-Unsplasher.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		443C2641BCD3FC3365A4D281 /* Pods-Unsplasher.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Unsplasher.debug.xcconfig"; path = "Target Support Files/Pods-Unsplasher/Pods-Unsplasher.debug.xcconfig"; sourceTree = "<group>"; };
+		9790BA28088257B79E882017 /* Pods-Unsplasher.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Unsplasher.release.xcconfig"; path = "Target Support Files/Pods-Unsplasher/Pods-Unsplasher.release.xcconfig"; sourceTree = "<group>"; };
+		D0389F50DF02CAA33D7C3624 /* libPods-Unsplasher.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Unsplasher.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD01EAAF2C1757FC00D403BD /* Unsplasher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Unsplasher.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD01EAB22C1757FC00D403BD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DD01EAB42C1757FC00D403BD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -51,6 +56,7 @@
 		DDEAF32D2C18A8310009E3CF /* UnlikePhotoRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnlikePhotoRequest.swift; sourceTree = "<group>"; };
 		DDEAF3302C18A87C0009E3CF /* SearchPhotosRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPhotosRequest.swift; sourceTree = "<group>"; };
 		DDEAF3352C18ABF20009E3CF /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
+		DDEAF33E2C18B5300009E3CF /* TokenStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenStorage.swift; sourceTree = "<group>"; };
 		DDEAF3402C18B6890009E3CF /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		DDEAF3422C18B68F0009E3CF /* Urls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Urls.swift; sourceTree = "<group>"; };
 		DDEAF3442C18B6990009E3CF /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -61,17 +67,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F3A54503B99A4E9AFC4733EC /* libPods-Unsplasher.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		15F4FFF2FFE6AA8D50FAAF14 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				443C2641BCD3FC3365A4D281 /* Pods-Unsplasher.debug.xcconfig */,
+				9790BA28088257B79E882017 /* Pods-Unsplasher.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		330207B2E90E50A618454C9D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D0389F50DF02CAA33D7C3624 /* libPods-Unsplasher.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		DD01EAA62C1757FC00D403BD = {
 			isa = PBXGroup;
 			children = (
 				DD01EAB12C1757FC00D403BD /* Unsplasher */,
 				DD01EAB02C1757FC00D403BD /* Products */,
+				15F4FFF2FFE6AA8D50FAAF14 /* Pods */,
+				330207B2E90E50A618454C9D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -120,6 +147,7 @@
 				DDEAF3282C18A7060009E3CF /* Requests */,
 				DDEAF3222C18A02F0009E3CF /* HttpMethod.swift */,
 				DDEAF3242C18A06B0009E3CF /* Endpoint.swift */,
+				DDEAF33E2C18B5300009E3CF /* TokenStorage.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -183,6 +211,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DD01EAC32C1757FE00D403BD /* Build configuration list for PBXNativeTarget "Unsplasher" */;
 			buildPhases = (
+				8A1CA494316D1C05570F058B /* [CP] Check Pods Manifest.lock */,
 				DD01EAAB2C1757FC00D403BD /* Sources */,
 				DD01EAAC2C1757FC00D403BD /* Frameworks */,
 				DD01EAAD2C1757FC00D403BD /* Resources */,
@@ -241,6 +270,31 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		8A1CA494316D1C05570F058B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Unsplasher-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		DD01EAAB2C1757FC00D403BD /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -252,6 +306,7 @@
 				DDEAF32E2C18A8310009E3CF /* UnlikePhotoRequest.swift in Sources */,
 				DD01EAB72C1757FC00D403BD /* TabBarController.swift in Sources */,
 				DD01EAB32C1757FC00D403BD /* AppDelegate.swift in Sources */,
+				DDEAF33F2C18B5300009E3CF /* TokenStorage.swift in Sources */,
 				DDEAF3252C18A06B0009E3CF /* Endpoint.swift in Sources */,
 				DDEAF3232C18A02F0009E3CF /* HttpMethod.swift in Sources */,
 				DDEAF3452C18B6990009E3CF /* User.swift in Sources */,
@@ -403,6 +458,7 @@
 		};
 		DD01EAC42C1757FE00D403BD /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 443C2641BCD3FC3365A4D281 /* Pods-Unsplasher.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -435,6 +491,7 @@
 		};
 		DD01EAC52C1757FE00D403BD /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9790BA28088257B79E882017 /* Pods-Unsplasher.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
