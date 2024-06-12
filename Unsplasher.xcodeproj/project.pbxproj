@@ -24,11 +24,16 @@
 		DDEAF32C2C18A7DC0009E3CF /* LikePhotoRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEAF32B2C18A7DC0009E3CF /* LikePhotoRequest.swift */; };
 		DDEAF32E2C18A8310009E3CF /* UnlikePhotoRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEAF32D2C18A8310009E3CF /* UnlikePhotoRequest.swift */; };
 		DDEAF3312C18A87C0009E3CF /* SearchPhotosRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEAF3302C18A87C0009E3CF /* SearchPhotosRequest.swift */; };
+		DDEAF3332C18AB7D0009E3CF /* PhotosService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEAF3322C18AB7D0009E3CF /* PhotosService.swift */; };
 		DDEAF3362C18ABF20009E3CF /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEAF3352C18ABF20009E3CF /* Photo.swift */; };
+		DDEAF33D2C18B0EC0009E3CF /* UsersService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEAF33C2C18B0EC0009E3CF /* UsersService.swift */; };
 		DDEAF33F2C18B5300009E3CF /* TokenStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEAF33E2C18B5300009E3CF /* TokenStorage.swift */; };
-		DDEAF3412C18B6890009E3CF /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEAF3402C18B6890009E3CF /* Location.swift */; };
-		DDEAF3432C18B68F0009E3CF /* Urls.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEAF3422C18B68F0009E3CF /* Urls.swift */; };
-		DDEAF3452C18B6990009E3CF /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEAF3442C18B6990009E3CF /* User.swift */; };
+		DDEAF3472C18BEEC0009E3CF /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEAF3462C18BEEC0009E3CF /* Token.swift */; };
+		DDEAF34A2C18C0240009E3CF /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEAF3492C18C0240009E3CF /* AuthService.swift */; };
+		DDEAF34D2C18C0950009E3CF /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEAF34C2C18C0950009E3CF /* SplashViewController.swift */; };
+		DDEAF3502C18C16C0009E3CF /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEAF34F2C18C16C0009E3CF /* AuthViewController.swift */; };
+		DDEAF3522C18DEF70009E3CF /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEAF3512C18DEF70009E3CF /* NetworkService.swift */; };
+		DDEAF3562C1994E60009E3CF /* Photos.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEAF3552C1994E60009E3CF /* Photos.swift */; };
 		F3A54503B99A4E9AFC4733EC /* libPods-Unsplasher.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D0389F50DF02CAA33D7C3624 /* libPods-Unsplasher.a */; };
 /* End PBXBuildFile section */
 
@@ -55,11 +60,16 @@
 		DDEAF32B2C18A7DC0009E3CF /* LikePhotoRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikePhotoRequest.swift; sourceTree = "<group>"; };
 		DDEAF32D2C18A8310009E3CF /* UnlikePhotoRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnlikePhotoRequest.swift; sourceTree = "<group>"; };
 		DDEAF3302C18A87C0009E3CF /* SearchPhotosRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPhotosRequest.swift; sourceTree = "<group>"; };
+		DDEAF3322C18AB7D0009E3CF /* PhotosService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosService.swift; sourceTree = "<group>"; };
 		DDEAF3352C18ABF20009E3CF /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
+		DDEAF33C2C18B0EC0009E3CF /* UsersService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersService.swift; sourceTree = "<group>"; };
 		DDEAF33E2C18B5300009E3CF /* TokenStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenStorage.swift; sourceTree = "<group>"; };
-		DDEAF3402C18B6890009E3CF /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
-		DDEAF3422C18B68F0009E3CF /* Urls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Urls.swift; sourceTree = "<group>"; };
-		DDEAF3442C18B6990009E3CF /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		DDEAF3462C18BEEC0009E3CF /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
+		DDEAF3492C18C0240009E3CF /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		DDEAF34C2C18C0950009E3CF /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
+		DDEAF34F2C18C16C0009E3CF /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
+		DDEAF3512C18DEF70009E3CF /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		DDEAF3552C1994E60009E3CF /* Photos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photos.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,7 +90,6 @@
 				443C2641BCD3FC3365A4D281 /* Pods-Unsplasher.debug.xcconfig */,
 				9790BA28088257B79E882017 /* Pods-Unsplasher.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -143,6 +152,8 @@
 		DDEAF3142C175FC20009E3CF /* API */ = {
 			isa = PBXGroup;
 			children = (
+				DDEAF3482C18BFC10009E3CF /* Auth */,
+				DDEAF33B2C18B0CB0009E3CF /* Services */,
 				DDEAF3342C18ABE80009E3CF /* Models */,
 				DDEAF3282C18A7060009E3CF /* Requests */,
 				DDEAF3222C18A02F0009E3CF /* HttpMethod.swift */,
@@ -155,6 +166,8 @@
 		DDEAF3152C175FE90009E3CF /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				DDEAF34E2C18C1590009E3CF /* AuthScreen */,
+				DDEAF34B2C18C0820009E3CF /* SplashScreen */,
 				DDEAF3182C17714F0009E3CF /* ImagesCollection */,
 				DDEAF31B2C177EC60009E3CF /* FavoriteImages */,
 				DD01EAB62C1757FC00D403BD /* TabBarController.swift */,
@@ -197,11 +210,44 @@
 			isa = PBXGroup;
 			children = (
 				DDEAF3352C18ABF20009E3CF /* Photo.swift */,
-				DDEAF3402C18B6890009E3CF /* Location.swift */,
-				DDEAF3422C18B68F0009E3CF /* Urls.swift */,
-				DDEAF3442C18B6990009E3CF /* User.swift */,
+				DDEAF3552C1994E60009E3CF /* Photos.swift */,
+				DDEAF3462C18BEEC0009E3CF /* Token.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		DDEAF33B2C18B0CB0009E3CF /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				DDEAF3322C18AB7D0009E3CF /* PhotosService.swift */,
+				DDEAF33C2C18B0EC0009E3CF /* UsersService.swift */,
+				DDEAF3492C18C0240009E3CF /* AuthService.swift */,
+				DDEAF3512C18DEF70009E3CF /* NetworkService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		DDEAF3482C18BFC10009E3CF /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		DDEAF34B2C18C0820009E3CF /* SplashScreen */ = {
+			isa = PBXGroup;
+			children = (
+				DDEAF34C2C18C0950009E3CF /* SplashViewController.swift */,
+			);
+			path = SplashScreen;
+			sourceTree = "<group>";
+		};
+		DDEAF34E2C18C1590009E3CF /* AuthScreen */ = {
+			isa = PBXGroup;
+			children = (
+				DDEAF34F2C18C16C0009E3CF /* AuthViewController.swift */,
+			);
+			path = AuthScreen;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -302,21 +348,26 @@
 			files = (
 				DDEAF30F2C175F130009E3CF /* ImagesCollectionViewController.swift in Sources */,
 				DDEAF3212C17889E0009E3CF /* FavoriteImagesCell.swift in Sources */,
-				DDEAF3412C18B6890009E3CF /* Location.swift in Sources */,
+				DDEAF3332C18AB7D0009E3CF /* PhotosService.swift in Sources */,
 				DDEAF32E2C18A8310009E3CF /* UnlikePhotoRequest.swift in Sources */,
 				DD01EAB72C1757FC00D403BD /* TabBarController.swift in Sources */,
 				DD01EAB32C1757FC00D403BD /* AppDelegate.swift in Sources */,
 				DDEAF33F2C18B5300009E3CF /* TokenStorage.swift in Sources */,
+				DDEAF3502C18C16C0009E3CF /* AuthViewController.swift in Sources */,
 				DDEAF3252C18A06B0009E3CF /* Endpoint.swift in Sources */,
+				DDEAF34D2C18C0950009E3CF /* SplashViewController.swift in Sources */,
 				DDEAF3232C18A02F0009E3CF /* HttpMethod.swift in Sources */,
-				DDEAF3452C18B6990009E3CF /* User.swift in Sources */,
+				DDEAF3522C18DEF70009E3CF /* NetworkService.swift in Sources */,
 				DDEAF3312C18A87C0009E3CF /* SearchPhotosRequest.swift in Sources */,
 				DDEAF3172C1763D90009E3CF /* DetailViewController.swift in Sources */,
-				DDEAF3432C18B68F0009E3CF /* Urls.swift in Sources */,
 				DDEAF3362C18ABF20009E3CF /* Photo.swift in Sources */,
+				DDEAF34A2C18C0240009E3CF /* AuthService.swift in Sources */,
 				DDEAF31A2C17716E0009E3CF /* ImagesCollectionCell.swift in Sources */,
+				DDEAF3562C1994E60009E3CF /* Photos.swift in Sources */,
+				DDEAF33D2C18B0EC0009E3CF /* UsersService.swift in Sources */,
 				DDEAF32A2C18A7320009E3CF /* PhotosRequest.swift in Sources */,
 				DDEAF3272C18A3B10009E3CF /* NetworkRequest.swift in Sources */,
+				DDEAF3472C18BEEC0009E3CF /* Token.swift in Sources */,
 				DDEAF32C2C18A7DC0009E3CF /* LikePhotoRequest.swift in Sources */,
 				DDEAF3132C175F760009E3CF /* FavoriteImagesViewController.swift in Sources */,
 				DD01EAB52C1757FC00D403BD /* SceneDelegate.swift in Sources */,
