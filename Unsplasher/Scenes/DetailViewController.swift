@@ -5,9 +5,12 @@
 //  Created by Вадим Шишков on 10.06.2024.
 //
 
+import Kingfisher
 import UIKit
 
 final class DetailViewController: UIViewController {
+    
+    private var id = ""
     
     private enum Layout {
         static let margin: CGFloat = 16
@@ -15,19 +18,18 @@ final class DetailViewController: UIViewController {
         static let betweenLabels: CGFloat = 5
     }
     
+    private let service = PhotosService()
+    
     private let imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.layer.cornerRadius = 8
-        imageView.image = UIImage(resource: .test)
         imageView.clipsToBounds = true
         imageView.contentMode = .scaleAspectFill
-        
         return imageView
     }()
     
     private let authorName: UILabel = {
         let label = UILabel()
-        label.text = "Автор: Vadim Shishkov"
         label.font = UIFont.systemFont(ofSize: 17)
         label.textColor = .darkBlue
         return label
@@ -35,7 +37,6 @@ final class DetailViewController: UIViewController {
     
     private let date: UILabel = {
         let label = UILabel()
-        label.text = "Дата создания: 10.06.2024"
         label.font = UIFont.systemFont(ofSize: 17)
         label.textColor = .darkBlue
         return label
@@ -43,7 +44,6 @@ final class DetailViewController: UIViewController {
     
     private let location: UILabel = {
         let label = UILabel()
-        label.text = "Местоположение: Москва"
         label.font = UIFont.systemFont(ofSize: 17)
         label.textColor = .darkBlue
         return label
@@ -51,7 +51,6 @@ final class DetailViewController: UIViewController {
     
     private let downloads: UILabel = {
         let label = UILabel()
-        label.text = "Количество скачиваний: 1000"
         label.font = UIFont.systemFont(ofSize: 17)
         label.textColor = .darkBlue
         return label
@@ -65,14 +64,46 @@ final class DetailViewController: UIViewController {
         return imageView
     }()
     
+    init(id: String) {
+        super.init(nibName: nil, bundle: nil)
+        self.id = id
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
         setupConstraints()
+        
+        service.fetchPhotoById(id: id) { [weak self] result in
+            switch result {
+            case .success(let photo):
+                self?.setInfo(photo)
+            case .failure(let error):
+                fatalError()
+            }
+        }
     }
     
     private func setupViews() {
         view.backgroundColor = .mainBackground
+    }
+    
+    private func setInfo(_ photo: Photo) {
+        DispatchQueue.main.async { [weak self] in
+            guard let self else { return }
+            guard let url = URL(string: photo.urls.regular) else { return }
+            
+            self.imageView.kf.indicatorType = .activity
+            self.imageView.kf.setImage(with: url)
+            self.authorName.text = "Автор: \(photo.user.name)"
+            self.date.text = "Дата создания: \(photo.createdAt)"
+            self.downloads.text = "Количество скачианий: \(photo.downloads.description)"
+            self.location.text = "Место положение: \(photo.location.city)"
+        }
     }
 }
 

@@ -118,8 +118,11 @@ extension ImagesCollectionViewController: UICollectionViewDelegateFlowLayout {
         _ collectionView: UICollectionView,
         didSelectItemAt indexPath: IndexPath
     ) {
-        let detailVC = DetailViewController()
-        navigationController?.pushViewController(detailVC, animated: true)
+        if let cell = collectionView.cellForItem(at: indexPath) as? ImagesCollectionCell,
+           let id = cell.id {
+            let detailVC = DetailViewController(id: id)
+            navigationController?.pushViewController(detailVC, animated: true)
+        }
     }
     
     func collectionView(

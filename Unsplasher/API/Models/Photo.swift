@@ -14,9 +14,10 @@ struct Photo: Decodable {
     let downloads: Int
     let location: Location
     let user: User
+    let urls: Urls
     
     enum CodingKeys: String, CodingKey {
-        case downloads, location, user
+        case downloads, location, user, urls
         case createdAt = "created_at"
         case likedByUser = "liked_by_user"
     }

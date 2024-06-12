@@ -12,6 +12,7 @@
 		DD01EAB72C1757FC00D403BD /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD01EAB62C1757FC00D403BD /* TabBarController.swift */; };
 		DD01EABC2C1757FE00D403BD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD01EABB2C1757FE00D403BD /* Assets.xcassets */; };
 		DD01EABF2C1757FE00D403BD /* Base in Resources */ = {isa = PBXBuildFile; fileRef = DD01EABE2C1757FE00D403BD /* Base */; };
+		DDCC93832C19A34800A2069F /* PhotoRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCC93822C19A34800A2069F /* PhotoRequest.swift */; };
 		DDEAF30F2C175F130009E3CF /* ImagesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEAF30E2C175F130009E3CF /* ImagesCollectionViewController.swift */; };
 		DDEAF3132C175F760009E3CF /* FavoriteImagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEAF3122C175F760009E3CF /* FavoriteImagesViewController.swift */; };
 		DDEAF3172C1763D90009E3CF /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEAF3162C1763D90009E3CF /* DetailViewController.swift */; };
@@ -48,6 +49,7 @@
 		DD01EABB2C1757FE00D403BD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DD01EABE2C1757FE00D403BD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DD01EAC02C1757FE00D403BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DDCC93822C19A34800A2069F /* PhotoRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoRequest.swift; sourceTree = "<group>"; };
 		DDEAF30E2C175F130009E3CF /* ImagesCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesCollectionViewController.swift; sourceTree = "<group>"; };
 		DDEAF3122C175F760009E3CF /* FavoriteImagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteImagesViewController.swift; sourceTree = "<group>"; };
 		DDEAF3162C1763D90009E3CF /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
@@ -198,6 +200,7 @@
 			children = (
 				DDEAF3262C18A3B10009E3CF /* NetworkRequest.swift */,
 				DDEAF3292C18A7320009E3CF /* PhotosRequest.swift */,
+				DDCC93822C19A34800A2069F /* PhotoRequest.swift */,
 				DDEAF32B2C18A7DC0009E3CF /* LikePhotoRequest.swift */,
 				DDEAF32D2C18A8310009E3CF /* UnlikePhotoRequest.swift */,
 				DDEAF3302C18A87C0009E3CF /* SearchPhotosRequest.swift */,
@@ -362,6 +365,7 @@
 				DDEAF32E2C18A8310009E3CF /* UnlikePhotoRequest.swift in Sources */,
 				DD01EAB72C1757FC00D403BD /* TabBarController.swift in Sources */,
 				DD01EAB32C1757FC00D403BD /* AppDelegate.swift in Sources */,
+				DDCC93832C19A34800A2069F /* PhotoRequest.swift in Sources */,
 				DDEAF33F2C18B5300009E3CF /* TokenStorage.swift in Sources */,
 				DDEAF3502C18C16C0009E3CF /* AuthViewController.swift in Sources */,
 				DDEAF3252C18A06B0009E3CF /* Endpoint.swift in Sources */,
