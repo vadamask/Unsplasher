@@ -10,6 +10,7 @@ import Foundation
 struct Photos: Decodable {
     let id: String
     let urls: Urls
+    let user: User
 }
 
 struct Urls: Decodable {

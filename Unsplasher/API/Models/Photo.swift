@@ -11,7 +11,7 @@ struct Photo: Decodable {
     
     let createdAt: String
     let likedByUser: Bool
-    let downloads: Int
+    let downloads: Int?
     let location: Location
     let user: User
     let urls: Urls
@@ -24,8 +24,8 @@ struct Photo: Decodable {
 }
 
 struct Location: Decodable {
-    let city: String
-    let country: String
+    let city: String?
+    let country: String?
 }
 
 struct User: Decodable {

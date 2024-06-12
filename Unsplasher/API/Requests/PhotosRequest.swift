@@ -8,6 +8,6 @@
 import Foundation
 
 struct PhotosRequest: NetworkRequest {
-    var endpoint: Endpoint = .getPhotos(page: 1, perPage: 1)
+    var endpoint: Endpoint = .getPhotos(page: 1, perPage: 20)
     var method: HttpMethod = .get
 }
