@@ -8,8 +8,8 @@
 import Foundation
 
 enum Endpoint {
-    case getPhotos(page: Int = 1)
     case searchPhotos(query: String, page: Int = 1)
+    case getPhotos(page: Int, perPage: Int)
     case likePhoto(id: String)
     case unlikePhoto(id: String)
     case me
@@ -23,7 +23,7 @@ enum Endpoint {
     
     private var endpoint: String {
         switch self {
-        case .getPhotos(let page): "/photos?page=\(page)"
+        case .getPhotos(let page, let perPage): "/photos?page=\(page)&per_page=\(perPage)"
         case .searchPhotos(let query, let page): "/search/photos?page=\(page)&query=\(query)"
         case .likePhoto(let id): "/photos/\(id)/like"
         case .unlikePhoto(let id): "/photos/\(id)/like"

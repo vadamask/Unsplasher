@@ -16,6 +16,9 @@ final class ImagesCollectionViewController: UIViewController {
         static let inset: CGFloat = 16
     }
     
+    private var photos: [Photos] = []
+    private let service = PhotosService()
+    
     private let collectionView: UICollectionView = {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
         collectionView.contentInset = UIEdgeInsets(top: 0, left: Layout.inset, bottom: 0, right: Layout.inset)
@@ -27,6 +30,7 @@ final class ImagesCollectionViewController: UIViewController {
         super.viewDidLoad()
         setupConstraints()
         setupViews()
+        fetchPhotos()
     }
     
     private func setupViews() {
@@ -45,6 +49,20 @@ final class ImagesCollectionViewController: UIViewController {
             ImagesCollectionCell.self,
             forCellWithReuseIdentifier: ImagesCollectionCell.identifier
         )
+    }
+    
+    private func fetchPhotos() {
+        service.fetchPhotos { [weak self] result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let photos):
+                    self?.photos = photos
+                    self?.collectionView.reloadData()
+                case .failure(let failure):
+                    fatalError()
+                }
+            }
+        }
     }
 }
 
@@ -72,14 +90,20 @@ extension ImagesCollectionViewController: UICollectionViewDataSource {
         _ collectionView: UICollectionView,
         numberOfItemsInSection section: Int
     ) -> Int {
-        100
+        photos.count
     }
     
     func collectionView(
         _ collectionView: UICollectionView,
         cellForItemAt indexPath: IndexPath
     ) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ImagesCollectionCell.identifier, for: indexPath)
+        guard let cell = collectionView
+            .dequeueReusableCell(
+                withReuseIdentifier: ImagesCollectionCell.identifier,
+                for: indexPath
+            ) as? ImagesCollectionCell else { return ImagesCollectionCell() }
+        
+        cell.configure(photos[indexPath.row])
         return cell
     }
     

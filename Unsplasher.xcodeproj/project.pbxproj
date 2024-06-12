@@ -152,7 +152,6 @@
 		DDEAF3142C175FC20009E3CF /* API */ = {
 			isa = PBXGroup;
 			children = (
-				DDEAF3482C18BFC10009E3CF /* Auth */,
 				DDEAF33B2C18B0CB0009E3CF /* Services */,
 				DDEAF3342C18ABE80009E3CF /* Models */,
 				DDEAF3282C18A7060009E3CF /* Requests */,
@@ -225,13 +224,6 @@
 				DDEAF3512C18DEF70009E3CF /* NetworkService.swift */,
 			);
 			path = Services;
-			sourceTree = "<group>";
-		};
-		DDEAF3482C18BFC10009E3CF /* Auth */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Auth;
 			sourceTree = "<group>";
 		};
 		DDEAF34B2C18C0820009E3CF /* SplashScreen */ = {
