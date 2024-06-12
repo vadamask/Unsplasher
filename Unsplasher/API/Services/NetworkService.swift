@@ -56,6 +56,23 @@ final class NetworkService: NetworkServiceProtocol {
             }
         }
     }
+
+    func send(
+        request: NetworkRequest,
+        completion: @escaping (Result<Void, NetworkServiceError>) -> Void
+    ) {
+        
+        guard let urlRequest = createURLRequestFrom(request) else { return }
+        
+        send(request: urlRequest) { result in
+            switch result {
+            case .success(_):
+                completion(.success(Void()))
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    }
     
     @discardableResult
     private func send(
@@ -64,21 +81,23 @@ final class NetworkService: NetworkServiceProtocol {
     ) -> URLSessionDataTask {
         
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
-            if let error {
-                completion(.failure(.urlRequestError(error)))
-                return
-            }
-            
-            guard let code = (response as? HTTPURLResponse)?.statusCode else { return }
-            
-            if let data = data {
-                if 200..<300 ~= code {
-                    completion(.success(data))
-                } else {
-                    completion(.failure(.httpStatusCode(code, data)))
+            DispatchQueue.main.async {
+                if let error {
+                    completion(.failure(.urlRequestError(error)))
+                    return
                 }
-            } else {
-                completion(.failure(.urlSessionError))
+                
+                guard let code = (response as? HTTPURLResponse)?.statusCode else { return }
+                
+                if let data = data {
+                    if 200..<300 ~= code {
+                        completion(.success(data))
+                    } else {
+                        completion(.failure(.httpStatusCode(code, data)))
+                    }
+                } else {
+                    completion(.failure(.urlSessionError))
+                }
             }
         }
         task.resume()
