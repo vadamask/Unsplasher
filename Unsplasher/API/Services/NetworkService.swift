@@ -21,7 +21,7 @@ protocol NetworkServiceProtocol {
         request: NetworkRequest,
         type: T.Type,
         completion: @escaping (Result<T, NetworkServiceError>) -> Void
-    )
+    ) -> URLSessionDataTask?
 }
 
 final class NetworkService: NetworkServiceProtocol {
@@ -37,31 +37,33 @@ final class NetworkService: NetworkServiceProtocol {
         }
     }
     
+    @discardableResult
     func send<T: Decodable>(
         request: NetworkRequest,
         type: T.Type,
         completion: @escaping (Result<T, NetworkServiceError>) -> Void
-    ) {
+    ) -> URLSessionDataTask? {
         
-        guard let urlRequest = createURLRequestFrom(request) else { return }
+        guard let urlRequest = createURLRequestFrom(request) else { return nil }
         
-        send(request: urlRequest) { result in
+        return send(request: urlRequest) { result in
             switch result {
-            case let .success(data):
+            case .success(let data):
                 let result = self.parse(data: data, type: type)
                 completion(result)
-            case let .failure(error):
+            case .failure(let error):
                 completion(.failure(error))
             }
         }
     }
     
+    @discardableResult
     private func send(
         request: URLRequest,
         completion: @escaping (Result<Data, NetworkServiceError>) -> Void
-    ) {
+    ) -> URLSessionDataTask {
         
-        URLSession.shared.dataTask(with: request) { data, response, error in
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
             if let error {
                 completion(.failure(.urlRequestError(error)))
                 return
@@ -78,7 +80,9 @@ final class NetworkService: NetworkServiceProtocol {
             } else {
                 completion(.failure(.urlSessionError))
             }
-        }.resume()
+        }
+        task.resume()
+        return task
     }
     
     private func createURLRequestFrom(_ request: NetworkRequest) -> URLRequest? {

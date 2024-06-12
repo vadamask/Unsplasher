@@ -8,9 +8,9 @@
 import Foundation
 
 enum Endpoint {
-    case searchPhotos(query: String, page: Int = 1)
     case getPhotos(page: Int, perPage: Int)
     case getPhotoById(String)
+    case searchPhotos(query: String, page: Int)
     case likePhoto(id: String)
     case unlikePhoto(id: String)
     case me

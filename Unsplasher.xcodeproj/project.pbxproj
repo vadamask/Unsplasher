@@ -13,6 +13,7 @@
 		DD01EABC2C1757FE00D403BD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD01EABB2C1757FE00D403BD /* Assets.xcassets */; };
 		DD01EABF2C1757FE00D403BD /* Base in Resources */ = {isa = PBXBuildFile; fileRef = DD01EABE2C1757FE00D403BD /* Base */; };
 		DDCC93832C19A34800A2069F /* PhotoRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCC93822C19A34800A2069F /* PhotoRequest.swift */; };
+		DDCC93852C19BD6600A2069F /* SearchPhotos.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCC93842C19BD6600A2069F /* SearchPhotos.swift */; };
 		DDEAF30F2C175F130009E3CF /* ImagesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEAF30E2C175F130009E3CF /* ImagesCollectionViewController.swift */; };
 		DDEAF3132C175F760009E3CF /* FavoriteImagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEAF3122C175F760009E3CF /* FavoriteImagesViewController.swift */; };
 		DDEAF3172C1763D90009E3CF /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEAF3162C1763D90009E3CF /* DetailViewController.swift */; };
@@ -50,6 +51,7 @@
 		DD01EABE2C1757FE00D403BD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DD01EAC02C1757FE00D403BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DDCC93822C19A34800A2069F /* PhotoRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoRequest.swift; sourceTree = "<group>"; };
+		DDCC93842C19BD6600A2069F /* SearchPhotos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPhotos.swift; sourceTree = "<group>"; };
 		DDEAF30E2C175F130009E3CF /* ImagesCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesCollectionViewController.swift; sourceTree = "<group>"; };
 		DDEAF3122C175F760009E3CF /* FavoriteImagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteImagesViewController.swift; sourceTree = "<group>"; };
 		DDEAF3162C1763D90009E3CF /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
@@ -214,6 +216,7 @@
 				DDEAF3352C18ABF20009E3CF /* Photo.swift */,
 				DDEAF3552C1994E60009E3CF /* Photos.swift */,
 				DDEAF3462C18BEEC0009E3CF /* Token.swift */,
+				DDCC93842C19BD6600A2069F /* SearchPhotos.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -361,6 +364,7 @@
 			files = (
 				DDEAF30F2C175F130009E3CF /* ImagesCollectionViewController.swift in Sources */,
 				DDEAF3212C17889E0009E3CF /* FavoriteImagesCell.swift in Sources */,
+				DDCC93852C19BD6600A2069F /* SearchPhotos.swift in Sources */,
 				DDEAF3332C18AB7D0009E3CF /* PhotosService.swift in Sources */,
 				DDEAF32E2C18A8310009E3CF /* UnlikePhotoRequest.swift in Sources */,
 				DD01EAB72C1757FC00D403BD /* TabBarController.swift in Sources */,

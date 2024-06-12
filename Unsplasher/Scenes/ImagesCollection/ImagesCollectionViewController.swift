@@ -38,6 +38,7 @@ final class ImagesCollectionViewController: UIViewController {
         navigationItem.title = "Коллекция"
         
         let searchController = UISearchController()
+        searchController.searchBar.delegate = self
         searchController.searchBar.placeholder = "Поиск"
         searchController.hidesNavigationBarDuringPresentation = false
         
@@ -152,4 +153,31 @@ extension ImagesCollectionViewController: UICollectionViewDelegateFlowLayout {
     ) -> CGFloat {
         Layout.betweenCells
     }
+}
+
+// MARK: - Search
+
+extension ImagesCollectionViewController: UISearchBarDelegate {
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        guard let text = searchBar.text else { return }
+        
+        service.searchPhotos(query: text) { [weak self] result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let searchPhotos):
+                    self?.photos = searchPhotos.results
+                    self?.collectionView.reloadData()
+                case .failure(let error):
+                    fatalError()
+                }
+            }
+        }
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        fetchPhotos()
+    }
+    
+    
 }
