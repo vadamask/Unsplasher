@@ -1,16 +1,24 @@
 PODS:
+  - Kingfisher (7.12.0)
+  - ProgressHUD (14.1.1)
   - SwiftKeychainWrapper (4.0.1)
 
 DEPENDENCIES:
+  - Kingfisher
+  - ProgressHUD
   - SwiftKeychainWrapper
 
 SPEC REPOS:
   trunk:
+    - Kingfisher
+    - ProgressHUD
     - SwiftKeychainWrapper
 
 SPEC CHECKSUMS:
+  Kingfisher: 53a10ea35051a436b5fb626ca2dd8f3144d755e9
+  ProgressHUD: abb9136ae23c85204236828562cb9a8ec98efb44
   SwiftKeychainWrapper: 807ba1d63c33a7d0613288512399cd1eda1e470c
 
-PODFILE CHECKSUM: 991871cd6236e2ca532e0c5db33cd0480849bdf4
+PODFILE CHECKSUM: d55c2efc8521d7c1fd566534cf6e7bc4acf3ccc4
 
 COCOAPODS: 1.14.3

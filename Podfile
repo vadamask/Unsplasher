@@ -7,4 +7,6 @@ target 'Unsplasher' do
 
   # Pods for Unsplasher
   pod 'SwiftKeychainWrapper'
+  pod 'Kingfisher' 
+  pod 'ProgressHUD'
 end
