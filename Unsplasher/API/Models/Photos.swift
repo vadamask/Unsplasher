@@ -1,11 +1,16 @@
 //
-//  Urls.swift
+//  Photos.swift
 //  Unsplasher
 //
-//  Created by Вадим Шишков on 11.06.2024.
+//  Created by Вадим Шишков on 12.06.2024.
 //
 
 import Foundation
+
+struct Photos: Decodable {
+    let id: String
+    let urls: Urls
+}
 
 struct Urls: Decodable {
     let thumb: String

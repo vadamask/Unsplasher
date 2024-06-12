@@ -8,17 +8,25 @@
 import Foundation
 
 struct Photo: Decodable {
-    let id: String
+    
     let createdAt: String
     let likedByUser: Bool
     let downloads: Int
     let location: Location
-    let urls: Urls
     let user: User
     
     enum CodingKeys: String, CodingKey {
-        case id, downloads, location, urls, user
+        case downloads, location, user
         case createdAt = "created_at"
         case likedByUser = "liked_by_user"
     }
+}
+
+struct Location: Decodable {
+    let city: String
+    let country: String
+}
+
+struct User: Decodable {
+    let name: String
 }
