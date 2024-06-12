@@ -15,6 +15,6 @@ protocol NetworkRequest {
 
 extension NetworkRequest {
     var token: String? {
-        "123"
+        TokenStorage.shared.token
     }
 }
