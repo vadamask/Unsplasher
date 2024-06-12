@@ -12,6 +12,8 @@ protocol PhotosServiceProtocol {
     func fetchPhotoById(id: String, completion: @escaping (Result<Photo, NetworkServiceError>) -> Void)
     func searchPhotos(query: String, completion: @escaping (Result<SearchPhotos, NetworkServiceError>) -> Void)
 
+    func like(_ id: String, completion: @escaping (Result<Void, NetworkServiceError>) -> Void)
+    func dislike(_ id: String, completion: @escaping (Result<Void, NetworkServiceError>) -> Void)
 }
 
 final class PhotosService: PhotosServiceProtocol {
@@ -64,13 +66,31 @@ final class PhotosService: PhotosServiceProtocol {
             }
         }
     }
-    
-    func likePhoto() {
+
+    func like(_ id: String, completion: @escaping (Result<Void, NetworkServiceError>) -> Void) {
+        let request = LikePhotoRequest(endpoint: .likePhoto(id: id))
         
+        service.send(request: request) { result in
+            switch result {
+            case .success(_):
+                completion(.success(Void()))
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
     }
     
-    func unlikePhoto() {
+    func dislike(_ id: String, completion: @escaping (Result<Void, NetworkServiceError>) -> Void) {
+        let request = UnlikePhotoRequest(endpoint: .unlikePhoto(id: id))
         
+        service.send(request: request) { result in
+            switch result {
+            case .success(_):
+                completion(.success(Void()))
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
     }
     
 

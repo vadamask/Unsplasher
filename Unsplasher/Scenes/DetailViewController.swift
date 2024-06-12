@@ -10,15 +10,15 @@ import UIKit
 
 final class DetailViewController: UIViewController {
     
-    private var id = ""
-    
     private enum Layout {
         static let margin: CGFloat = 16
         static let symbolSize = CGSize(width: 30, height: 30)
         static let betweenLabels: CGFloat = 5
     }
     
-    private let service = PhotosService()
+    private let service: PhotosServiceProtocol = PhotosService()
+    private var id = ""
+    private var photo: Photo?
     
     private let imageView: UIImageView = {
         let imageView = UIImageView()
@@ -56,12 +56,12 @@ final class DetailViewController: UIViewController {
         return label
     }()
     
-    private let likeButton: UIImageView = {
-        let imageView = UIImageView()
-        imageView.image = UIImage(systemName: "heart")
-        imageView.tintColor = .red
-        
-        return imageView
+    private let likeButton: UIButton = {
+        let button = UIButton()
+        button.tintColor = .red
+        button.isUserInteractionEnabled = true
+        button.addTarget(nil, action: #selector(likeButtonTapped), for: .touchUpInside)
+        return button
     }()
     
     init(id: String) {
@@ -79,11 +79,14 @@ final class DetailViewController: UIViewController {
         setupConstraints()
         
         service.fetchPhotoById(id: id) { [weak self] result in
+            guard let self else { return }
+            
             switch result {
             case .success(let photo):
-                self?.setInfo(photo)
+                self.photo = photo
+                self.setInfo(photo)
             case .failure(let error):
-                fatalError()
+                AlertPresenter.show(in: self, model: AlertModel(message: error.localizedDescription))
             }
         }
     }
@@ -93,17 +96,79 @@ final class DetailViewController: UIViewController {
     }
     
     private func setInfo(_ photo: Photo) {
-        DispatchQueue.main.async { [weak self] in
-            guard let self else { return }
-            guard let url = URL(string: photo.urls.regular) else { return }
-            
-            self.imageView.kf.indicatorType = .activity
-            self.imageView.kf.setImage(with: url)
-            self.authorName.text = "Автор: \(photo.user.name)"
-            self.date.text = "Дата создания: \(photo.createdAt)"
-            self.downloads.text = "Количество скачианий: \(photo.downloads.description)"
-            self.location.text = "Место положение: \(photo.location.city)"
+        guard let url = URL(string: photo.urls.regular) else { return }
+        
+        self.imageView.kf.indicatorType = .activity
+        self.imageView.kf.setImage(with: url) { [weak self] _ in
+            self?.updateButton()
         }
+        
+        self.authorName.text = "Автор: \(photo.user.name)"
+        self.date.text = "Дата создания: \(formattedDate(photo.createdAt))"
+        self.downloads.text = "Количество скачиваний: \(photo.downloads ?? 0)"
+        self.location.text = "Местоположение: \(photo.location.city ?? "-")"
+    }
+    
+    @objc private func likeButtonTapped() {
+        if let photo {
+            if photo.likedByUser {
+                service.dislike(id) { [weak self] result in
+                    guard let self else { return }
+                    
+                    switch result {
+                    case .success(_):
+                        self.photo = Photo(
+                            createdAt: photo.createdAt,
+                            likedByUser: !photo.likedByUser,
+                            downloads: photo.downloads,
+                            location: photo.location,
+                            user: photo.user,
+                            urls: photo.urls
+                        )
+                    case .failure(let error):
+                        AlertPresenter.show(in: self, model: AlertModel(message: error.localizedDescription))
+                    }
+                    self.updateButton()
+                }
+            } else {
+                service.like(id) { [weak self] result in
+                    guard let self else { return }
+                    
+                    switch result {
+                    case .success(_):
+                        self.photo = Photo(
+                            createdAt: photo.createdAt,
+                            likedByUser: !photo.likedByUser,
+                            downloads: photo.downloads,
+                            location: photo.location,
+                            user: photo.user,
+                            urls: photo.urls
+                        )
+                    case .failure(let error):
+                        AlertPresenter.show(in: self, model: AlertModel(message: error.localizedDescription))
+                    }
+                    self.updateButton()
+                }
+            }
+        }
+    }
+    
+    private func updateButton() {
+        guard let photo else { return }
+        
+        self.likeButton.setImage(
+            photo.likedByUser ?
+            UIImage(systemName: "heart.fill") :
+                UIImage(systemName: "heart"),
+            for: .normal)
+        
+    }
+    
+    private func formattedDate(_ date: String) -> String {
+        let formatter = ISO8601DateFormatter()
+        let date = formatter.date(from: date)!
+        formatter.formatOptions = [.withFullDate]
+        return formatter.string(from: date)
     }
 }
 
@@ -112,12 +177,11 @@ final class DetailViewController: UIViewController {
 extension DetailViewController {
     private func setupConstraints() {
         view.addSubview(imageView)
-        imageView.addSubview(likeButton)
-        
         view.addSubview(authorName)
         view.addSubview(date)
         view.addSubview(location)
         view.addSubview(downloads)
+        view.addSubview(likeButton)
         
         imageView.translatesAutoresizingMaskIntoConstraints = false
         likeButton.translatesAutoresizingMaskIntoConstraints = false
