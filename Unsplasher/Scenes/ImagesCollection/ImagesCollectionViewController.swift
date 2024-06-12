@@ -17,12 +17,20 @@ final class ImagesCollectionViewController: UIViewController {
     }
     
     private var photos: [Photos] = []
-    private let service = PhotosService()
+    private let service: PhotosServiceProtocol = PhotosService()
+    
+    private let refresher: UIRefreshControl = {
+        let refresher = UIRefreshControl()
+        refresher.tintColor = .gray
+        refresher.addTarget(nil, action: #selector(pullToRefresh), for: .valueChanged)
+        return refresher
+    }()
     
     private let collectionView: UICollectionView = {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
         collectionView.contentInset = UIEdgeInsets(top: 0, left: Layout.inset, bottom: 0, right: Layout.inset)
         collectionView.backgroundColor = .mainBackground
+        collectionView.alwaysBounceVertical = true
         return collectionView
     }()
     
@@ -39,6 +47,7 @@ final class ImagesCollectionViewController: UIViewController {
         
         let searchController = UISearchController()
         searchController.searchBar.delegate = self
+        searchController.showsSearchResultsController = true
         searchController.searchBar.placeholder = "Поиск"
         searchController.hidesNavigationBarDuringPresentation = false
         
@@ -50,19 +59,38 @@ final class ImagesCollectionViewController: UIViewController {
             ImagesCollectionCell.self,
             forCellWithReuseIdentifier: ImagesCollectionCell.identifier
         )
+        collectionView.addSubview(refresher)
     }
     
     private func fetchPhotos() {
         service.fetchPhotos { [weak self] result in
-            DispatchQueue.main.async {
-                switch result {
-                case .success(let photos):
-                    self?.photos = photos
-                    self?.collectionView.reloadData()
-                case .failure(let failure):
-                    fatalError()
-                }
+            guard let self else { return }
+            
+            switch result {
+            case .success(let photos):
+                self.photos = photos
+                self.collectionView.reloadData()
+            case .failure(let error):
+                AlertPresenter.show(in: self, model: AlertModel(message: error.localizedDescription))
             }
+        }
+    }
+    
+    @objc private func pullToRefresh() {
+        collectionView.refreshControl?.beginRefreshing()
+        
+        service.fetchPhotos { [weak self] result in
+            guard let self else { return }
+            
+            switch result {
+            case .success(let photos):
+                self.photos = photos
+                self.collectionView.reloadData()
+            case .failure(let error):
+                AlertPresenter.show(in: self, model: AlertModel(message: error.localizedDescription))
+            }
+            #warning("Не останавливается")
+            self.collectionView.refreshControl?.endRefreshing()
         }
     }
 }
@@ -98,6 +126,7 @@ extension ImagesCollectionViewController: UICollectionViewDataSource {
         _ collectionView: UICollectionView,
         cellForItemAt indexPath: IndexPath
     ) -> UICollectionViewCell {
+        
         guard let cell = collectionView
             .dequeueReusableCell(
                 withReuseIdentifier: ImagesCollectionCell.identifier,
@@ -107,8 +136,6 @@ extension ImagesCollectionViewController: UICollectionViewDataSource {
         cell.configure(photos[indexPath.row])
         return cell
     }
-    
-    
 }
 
 // MARK: - CollectionViewLayout & Delegate
@@ -163,21 +190,23 @@ extension ImagesCollectionViewController: UISearchBarDelegate {
         guard let text = searchBar.text else { return }
         
         service.searchPhotos(query: text) { [weak self] result in
-            DispatchQueue.main.async {
-                switch result {
-                case .success(let searchPhotos):
-                    self?.photos = searchPhotos.results
-                    self?.collectionView.reloadData()
-                case .failure(let error):
-                    fatalError()
-                }
+            guard let self else { return }
+            
+            switch result {
+            case .success(let searchPhotos):
+                self.photos = searchPhotos.results
+                self.collectionView.reloadData()
+            case .failure(let error):
+                AlertPresenter.show(in: self, model: AlertModel(message: error.localizedDescription))
             }
+            
         }
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        fetchPhotos()
+        guard let text = searchBar.text else { return }
+        if !text.isEmpty {
+            fetchPhotos()
+        }
     }
-    
-    
 }

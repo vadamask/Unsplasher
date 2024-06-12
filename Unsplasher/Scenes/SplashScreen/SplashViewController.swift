@@ -19,18 +19,20 @@ final class SplashViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-            
+        
         if let _ = tokenStorage.token {
             showMainScreen()
         } else {
             let authVC = AuthViewController()
             authVC.onGettingCode = { [weak self] code in
-                self?.authService.fetchToken(code) { [weak self] result in
+                guard let self else { return }
+                
+                self.authService.fetchToken(code) { result in
                     switch result {
                     case .success(_):
-                        self?.showMainScreen()
+                        self.showMainScreen()
                     case .failure(let error):
-                        print(error.localizedDescription)
+                        AlertPresenter.show(in: self, model: AlertModel(message: error.localizedDescription))
                     }
                 }
             }
