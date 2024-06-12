@@ -11,6 +11,7 @@ enum Endpoint {
     case getPhotos(page: Int, perPage: Int)
     case getPhotoById(String)
     case searchPhotos(query: String, page: Int)
+    case likedPhotos(username: String, page: Int)
     case likePhoto(id: String)
     case unlikePhoto(id: String)
     case me
@@ -27,6 +28,7 @@ enum Endpoint {
         case .getPhotos(let page, let perPage): "/photos?page=\(page)&per_page=\(perPage)"
         case .getPhotoById(let id): "/photos/\(id)"
         case .searchPhotos(let query, let page): "/search/photos?page=\(page)&query=\(query)"
+        case .likedPhotos(let username, let page): "/users/\(username)/likes?page=\(page)"
         case .likePhoto(let id): "/photos/\(id)/like"
         case .unlikePhoto(let id): "/photos/\(id)/like"
         case .me: "/me"

@@ -11,16 +11,17 @@ protocol PhotosServiceProtocol {
     func fetchPhotos(completion: @escaping (Result<[Photos], NetworkServiceError>) -> Void)
     func fetchPhotoById(id: String, completion: @escaping (Result<Photo, NetworkServiceError>) -> Void)
     func searchPhotos(query: String, completion: @escaping (Result<SearchPhotos, NetworkServiceError>) -> Void)
-
     func like(_ id: String, completion: @escaping (Result<Void, NetworkServiceError>) -> Void)
     func dislike(_ id: String, completion: @escaping (Result<Void, NetworkServiceError>) -> Void)
+    func fetchLikedPhotos(username: String, completion: @escaping (Result<[Photos], NetworkServiceError>) -> Void)
 }
 
 final class PhotosService: PhotosServiceProtocol {
-    
+   
     private let service = NetworkService()
     private var page = 1
     private var searchPage = 1
+    private var likePage = 1
     private var searchTask: URLSessionDataTask?
     
     func fetchPhotos(completion: @escaping (Result<[Photos], NetworkServiceError>) -> Void) {
@@ -57,10 +58,11 @@ final class PhotosService: PhotosServiceProtocol {
             searchTask?.cancel()
         }
         
-        searchTask = service.send(request: request, type: SearchPhotos.self) { result in
+        searchTask = service.send(request: request, type: SearchPhotos.self) { [weak self] result in
             switch result {
             case .success(let photos):
                 completion(.success(photos))
+                self?.searchPage += 1
             case .failure(let error):
                 completion(.failure(error))
             }
@@ -93,5 +95,18 @@ final class PhotosService: PhotosServiceProtocol {
         }
     }
     
-
+    func fetchLikedPhotos(username: String, completion: @escaping (Result<[Photos], NetworkServiceError>) -> Void) {
+        
+        let request = LikedPhotosRequest(endpoint: .likedPhotos(username: username, page: self.likePage))
+        
+        self.service.send(request: request, type: [Photos].self) { [weak self] result in
+            switch result {
+            case .success(let photos):
+                completion(.success(photos))
+                self?.likePage += 1
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    }
 }
